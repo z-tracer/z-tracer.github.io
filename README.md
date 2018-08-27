@@ -1,10 +1,23 @@
-## Welcome to GitHub Pages
+## z-tracer
 
-You can use the [editor on GitHub](https://github.com/z-tracer/z-tracer.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+z-tracer是一个专为嵌入式系统设计的分布式linux性能检测工具。嵌入式系统通常cpu能力和内存大小有限，不适合进行数据分析和数据存储。z-tracer通过设备->服务器的分布式方式，将数据分析和处理移到性能更高的服务器端，减轻设备压力。可以同时监控多个设备。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 系统概况
 
-### Markdown
+
+### CPU监控
+
+
+### 内存监控
+
+
+### 任务监控
+
+
+### 函数监控
+
+
+### PERF监控
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
