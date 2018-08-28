@@ -128,7 +128,7 @@ caller用于分析函数被调用的情况，用于感知都是谁在调用此�
 要想显示函数可跟踪的参数，需要在编译的时候加上-g参数。当然也可以直接指定cpu寄存器。但是不同的平台cpu的传参和寄存器的命名方式不一样，需要参考相应的手册。<br>
 
 ### PERF监控
-perf监控移植了flamescope，通过设置参数来记录cpu的运行情况，可设置的参数包括：<br>
+perf监控移植了[flamescope](https://github.com/Netflix/flamescope)，通过设置参数来记录cpu的运行情况，可设置的参数包括：<br>
 ![image](http://z-tracer.github.io/img/perf_setting.png)<br>
 高级参数需要用户熟悉perf工具，请参考对应版本的perf工具。<br>
 采集完成之后会以热图的方式显示该段时间内cpu的运行情况。cpu越繁忙颜色越深<br>
