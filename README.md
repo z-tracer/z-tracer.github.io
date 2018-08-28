@@ -28,19 +28,19 @@
 ### CPU监控
 cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<br>
 
-**CPU**<br>
+#### CPU
 以逻辑cpu为单位，记录每个cpu上的利用率情况<br>
 ![image](http://z-tracer.github.io/img/cpu_cpus.png)<br>
 
-**硬中断**<br>
+#### 硬中断
 以逻辑cpu为单位，记录每个cpu上单位时间内硬中断的个数<br>
 ![image](http://z-tracer.github.io/img/cpu_interrupts.png)<br>
 
-**软中断**<br>
+#### 软中断
 以逻辑cpu为单位，记录每个cpu上单位时间内软中断的个数<br>
 ![image](http://z-tracer.github.io/img/cpu_softirqs.png)<br>
 
-**系统调用**<br>
+#### 系统调用
 由于系统每时每刻都在进行，数据量会非常大，所以采取了手动采集方式，用来分析当前系统调用的次数和分布情况（采样时间不要太长！）。<br>
 ![image](http://z-tracer.github.io/img/syscalls.png)<br>
 系统调用按两种方式进行了统计：<br>
@@ -52,7 +52,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 ![image](http://z-tracer.github.io/img/syscalls_bypid.png)<br>
 另外，还可以通过指定pid或者系统调用名称的方式来捕获特定的数据，以减小数据量。
 
-**信号**<br>
+#### 信号
 信号用来跟踪当前系统中所发生的信号事件，也是通过手动模式触发，相对于系统调用，它的数据量会小很多。<br>
 ![image](http://z-tracer.github.io/img/signal.png)<br>
 当点击表格里的某个进程时，就会显示出与此进程相关的信号<br>
@@ -62,7 +62,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 
 ### 任务监控
   任务监控是以进程或者线程为单位进行分析<br>
-**关系图**<br>
+#### 关系图
 关系图能够显示整个系统中所有进程和线程的父子关系，让我们对整个系统中的进程有个一全面的认识<br>
 ![image](http://z-tracer.github.io/img/pstree.svg)<br>
 在这里进程按照是否含有线程有三种样式：<br>
@@ -74,7 +74,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 ![image](http://z-tracer.github.io/img/pstree_thread.png)<br>
 同时进程也会按照不同的调度属性分配不同的颜色<br>
 
-**进程监控**<br>
+#### 进程监控
 进程监控以进程为单位，监控进程各自资源的使用情况，包括：<br>
 1. 进程占用cpu情况（总cpu和每个cpu都会统计）
 2. 进程占用内存情况（只统计最近有变化的进程）
@@ -82,7 +82,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 4. 进程缺页，包括主缺页和次缺页
 ![image](http://z-tracer.github.io/img/process_monitor.png)<br>
 
-**进程/线程信息**<br>
+#### 进程/线程信息
 分别以进程/线程为单位，显示详细的进程状态信息。
 ![image](http://z-tracer.github.io/img/process_info.png)<br>
 
@@ -113,7 +113,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 
 ### 函数监控
   函数监控用来分析一个函数的调用和运行情况，分为callee和caller。<br>
-**callee**<br>
+#### callee
 callee用于分析一个函数的内部运行情况，可以找出该函数内部的调用路径，以及最耗时的子函数（目前只支持内核函数）。<br>
 ![image](http://z-tracer.github.io/img/function_callee.png)<br>
 * 函数执行时间分布:以热图的方式记录函数的执行时间。<br>
@@ -124,7 +124,7 @@ callee用于分析一个函数的内部运行情况，可以找出该函数内�
 通过点击**查看流程图**可以查看函数运行的流程图，方便理解函数的执行过程。<br>
 ![image](http://z-tracer.github.io/img/functree.svg)<br>
 
-**caller**<br>
+#### caller
 caller用于分析函数被调用的情况，用于感知都是谁在调用此函数。同时也支持对函数的一个参数和返回值进行跟踪（支持用户态和内核态函数）<br>
 ![image](http://z-tracer.github.io/img/function_caller.png)<br>
 最开始通过火焰图显示此函数被调用的路径，宽度越宽表示表调用的次数越多。<br>
