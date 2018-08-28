@@ -29,15 +29,15 @@ z-tracer是一个分布式的linux性能监测工具。可以用来实时观测l
 cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<br>
 
 **CPU**<br>
-cpu以逻辑cpu为单位，记录每个cpu上的利用率情况<br>
+以逻辑cpu为单位，记录每个cpu上的利用率情况<br>
 ![image](http://z-tracer.github.io/img/cpu_cpus.png)<br>
 
 **硬中断**<br>
-同样是以逻辑cpu为单位进行记录<br>
+以逻辑cpu为单位，记录每个cpu上单位时间内硬中断的个数<br>
 ![image](http://z-tracer.github.io/img/cpu_interrupts.png)<br>
 
 **软中断**<br>
-也是以逻辑cpu为单位记录<br>
+以逻辑cpu为单位，记录每个cpu上单位时间内软中断的个数<br>
 ![image](http://z-tracer.github.io/img/cpu_softirqs.png)<br>
 
 **系统调用**<br>
