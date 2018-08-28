@@ -7,12 +7,12 @@
 * [PERF监控](#perf监控)
 
 ## z-tracer
-z-tracer是一个分布式的linux性能监测工具。可以用来实时观测linux系统运行情况，分析系统热点，代码执行流程。z-tracer既能支持主机系统，也可以支持嵌入式系统。嵌入式系统通常cpu能力和内存大小有限，不适合进行数据分析和数据存储。z-tracer通过设备->服务器的分布式方式，将数据分析和处理移到性能更高的服务器端，减轻设备压力。z-tracer可以同时监控多个设备。
+  z-tracer是一个分布式的linux性能监测工具。可以用来实时观测linux系统运行情况，分析系统热点，代码执行流程。z-tracer既能支持主机系统，也可以支持嵌入式系统。嵌入式系统通常cpu能力和内存大小有限，不适合进行数据分析和数据存储。z-tracer通过设备->服务器的分布式方式，将数据分析和处理移到性能更高的服务器端，减轻设备压力。z-tracer可以同时监控多个设备。
 ![image](http://z-tracer.github.io/img/top.jpg)<br>
 上图是z-traced的整体框架，在设备上运行ztracerd服务，服务器端通过jsonrpc与设备通信，采集设备信息，同时进行数据分析和处理。服务器端采用flask框架，好处是能够同时支持windows和linux。用户通过浏览器访问服务器获取分析数据。
 
 ### 系统概况
-系统概况用来根据系统资源的总体使用情况，负载较小，监控的内容包括：
+  系统概况用来根据系统资源的总体使用情况，负载较小，监控的内容包括：
 1. cpu利用率
 2. 整体内存使用情况
 3. cpu平均负载
@@ -61,7 +61,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 ### 内存监控
 
 ### 任务监控
-任务监控是以进程或者线程为单位进行分析<br>
+  任务监控是以进程或者线程为单位进行分析<br>
 **关系图**<br>
 关系图能够显示整个系统中所有进程和线程的父子关系，让我们对整个系统中的进程有个一全面的认识<br>
 ![image](http://z-tracer.github.io/img/pstree.svg)<br>
@@ -112,7 +112,7 @@ cpu监控子项以功能模块的方式来监控和分析对cpu的使用情况<b
 3. cpu使用监控（包括内核态和用户态）
 
 ### 函数监控
-函数监控用来分析一个函数的调用和运行情况，分为callee和caller。<br>
+  函数监控用来分析一个函数的调用和运行情况，分为callee和caller。<br>
 **callee**<br>
 callee用于分析一个函数的内部运行情况，可以找出该函数内部的调用路径，以及最耗时的子函数（目前只支持内核函数）。<br>
 ![image](http://z-tracer.github.io/img/function_callee.png)<br>
@@ -125,12 +125,14 @@ callee用于分析一个函数的内部运行情况，可以找出该函数内�
 ![image](http://z-tracer.github.io/img/functree.svg)<br>
 
 **caller**<br>
-caller用于分析函数被调用的情况，用于感知都是谁在调用此函数。同时也支持对函数的参数进行跟踪<br>
+caller用于分析函数被调用的情况，用于感知都是谁在调用此函数。同时也支持对函数的一个参数和返回值进行跟踪（支持用户态和内核态函数）<br>
 ![image](http://z-tracer.github.io/img/function_caller.png)<br>
+最开始通过火焰图显示此函数被调用的路径，宽度越宽表示表调用的次数越多。<br>
+如果指定了函数参数或者返回值，就会对函数的参数/返回值进行跟踪，并通过热图的方式显示出来。<br>
 要想显示函数可跟踪的参数，需要在编译的时候加上-g参数。当然也可以直接指定cpu寄存器。但是不同的平台cpu的传参和寄存器的命名方式不一样，需要参考相应的手册。<br>
 
 ### PERF监控
-perf监控移植了[flamescope](https://github.com/Netflix/flamescope)，通过设置参数来记录cpu的运行情况，可设置的参数包括：<br>
+  perf监控移植了[flamescope](https://github.com/Netflix/flamescope)，通过设置参数来记录cpu的运行情况，可设置的参数包括：<br>
 ![image](http://z-tracer.github.io/img/perf_setting.png)<br>
 高级参数需要用户熟悉perf工具，请参考对应版本的perf工具。<br>
 采集完成之后会以热图的方式显示该段时间内cpu的运行情况。cpu越繁忙颜色越深<br>
